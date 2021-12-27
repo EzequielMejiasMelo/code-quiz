@@ -11,16 +11,22 @@
   <body>
     <header>
       <a href="./highscores.html">View Highscores</a>
-      <p>Time: <span id="time">0</span></p>
+      <p class="timer">Time: <span id="time">0</span></p>
     </header>
     <main>
-      <h2 class="question">Code Quiz Challenge</h2>
-      <p>
+      <h2 id="question">Code Quiz Challenge</h2>
+      <p id="startText">
         Try to answer the following code-related questions within the time. Keep
         in mind that incorrect answers wil penalize your score/time by ten
         seconds!
       </p>
       <p class="button" id="startBtn">Start Quiz</p>
+      <div class="hide">
+        <p class="button">1.<span id="choice1"></span></p>
+        <p class="button">2.<span id="choice2"></span></p>
+        <p class="button">3.<span id="choice3"></span></p>
+        <p class="button">4.<span id="choice4"></span></p>
+      </div>
     </main>
     <script src="./assets/js/script.js"></script>
   </body>

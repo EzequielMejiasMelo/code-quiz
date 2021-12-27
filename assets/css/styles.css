@@ -1,0 +1,29 @@
+:root{
+    --white: white;
+    --purple: purple;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    margin: 20vh 30vw;
+}
+
+.hide {
+    display: none;
+}
+
+.button {
+    width: max-content;
+    padding: 5px;
+    background-color: var(--purple);
+    color: var(--white);
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.timer {
+    text-align: end;
+}
