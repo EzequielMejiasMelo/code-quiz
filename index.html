@@ -15,17 +15,23 @@
     </header>
     <main>
       <h2 id="question">Code Quiz Challenge</h2>
-      <p id="startText">
-        Try to answer the following code-related questions within the time. Keep
-        in mind that incorrect answers wil penalize your score/time by ten
-        seconds!
-      </p>
-      <p class="button" id="startBtn">Start Quiz</p>
-      <div class="hide">
+      <div id="startItems">
+        <p id="text">
+            Try to answer the following code-related questions within the time. Keep
+            in mind that incorrect answers wil penalize your score/time by ten
+            seconds!
+        </p>
+        <p class="button" id="startBtn">Start Quiz</p>
+      </div>
+      <div class="hide" id="choices">
         <p class="button">1.<span id="choice1"></span></p>
         <p class="button">2.<span id="choice2"></span></p>
         <p class="button">3.<span id="choice3"></span></p>
         <p class="button">4.<span id="choice4"></span></p>
+      </div>
+      <div class="hide" id="results">
+          <p>Your final score is <span id=score></span></p>
+          <p>Enter initials: <input type="text" id="initials"><span class="button" id="submit">Submit</span></p>
       </div>
     </main>
     <script src="./assets/js/script.js"></script>
