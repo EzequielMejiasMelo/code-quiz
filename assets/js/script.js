@@ -23,6 +23,7 @@ var submitBtn = document.querySelector("#submit");
 
 // Starts and ends game
 function quizStart() {
+  startDiv.setAttribute("class", "hide");
   var score = quizGame();
   
   //sets up results elements
@@ -35,7 +36,8 @@ function quizStart() {
 
 //handles setting: questions, answers and timer | returns score int
 function quizGame() {
-  
+  choicesDiv.setAttribute("class", "");
+  return;
 }
 
 function setHighscore() {
