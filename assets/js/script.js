@@ -25,7 +25,7 @@ var submitBtn = document.querySelector("#submit");
 function quizStart() {
   startDiv.setAttribute("class", "hide");
   var score = quizGame();
-  
+
   //sets up results elements
   choicesDiv.setAttribute("class", "hide");
   resultsDiv.setAttribute("class", "");
@@ -52,37 +52,37 @@ var questionsAndAnswers = [
   {
     question: "Which Greek hero was called 'Tamer of Horses'?",
     answers: [
-      {text: "Paris", correct: false},
-      {text: "Hector", correct: true},
-      {text: "Alexander the Great", correct: false},
-      {text: "Apollo", correct: false}
-    ]
+      { text: "Paris", correct: false },
+      { text: "Hector", correct: true },
+      { text: "Alexander the Great", correct: false },
+      { text: "Apollo", correct: false },
+    ],
   },
   {
     question: "In Greek mythology, who flew too close to the Sun?",
     answers: [
-      {text: "Pegasus", correct: false},
-      {text: "Icarus", correct: true},
-      {text: "Theseus", correct: false},
-      {text: "Proteus", correct: false},
-    ]
+      { text: "Pegasus", correct: false },
+      { text: "Icarus", correct: true },
+      { text: "Theseus", correct: false },
+      { text: "Proteus", correct: false },
+    ],
   },
   {
     question: "Who was the chief god of all the ancient Greeks?",
     answers: [
-      {text: "Minerva", correct: false},
-      {text: "Zeus", correct: true},
-      {text: "Apollo", correct: false},
-      {text: "Hermes", correct: false},
-    ]
+      { text: "Minerva", correct: false },
+      { text: "Zeus", correct: true },
+      { text: "Apollo", correct: false },
+      { text: "Hermes", correct: false },
+    ],
   },
   {
     question: "Who was the Greek goddes of the rainbow?",
     answers: [
-      {text: "Hera", correct: false},
-      {text: "Iris", correct: true},
-      {text: "Hecate", correct: false},
-      {text: "Aphrodite", correct: false},
-    ]
-  }
-]
+      { text: "Hera", correct: false },
+      { text: "Iris", correct: true },
+      { text: "Hecate", correct: false },
+      { text: "Aphrodite", correct: false },
+    ],
+  },
+];

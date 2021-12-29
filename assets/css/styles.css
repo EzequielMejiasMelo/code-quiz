@@ -27,3 +27,7 @@ main {
 .timer {
     text-align: end;
 }
+
+.space {
+    margin-top: 20px;
+}
