@@ -41,7 +41,7 @@ function quizGame() {
 }
 
 function setHighscore() {
-  localStorage.setItem(nameInput, scoreEl);
+  localStorage.setItem(nameInput.value, scoreEl.textContent);
   return;
 }
 
