@@ -1,6 +1,5 @@
 // Assignment
 var clearBtn = document.querySelector("#clearScore");
-var backBtn = document.querySelector("#backBtn");
 var listEl = document.querySelector("#scoreList");
 
 function pullScores() {
@@ -22,7 +21,15 @@ function pullScores() {
 
 function clearScores() {
   localStorage.clear();
+  listEl.classList.add("hide");
+  while(listEl.hasChildNodes()){
+    listEl.removeChild(list.firstChild);
+  }
   return;
+}
+
+function goBack() {
+  location.href = "./index.html";
 }
 
 //Event listeners

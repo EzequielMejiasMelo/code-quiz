@@ -42,6 +42,7 @@ function quizGame() {
 
 function setHighscore() {
   localStorage.setItem(nameInput.value, scoreEl.textContent);
+  location.href = "./highscores.html";
   return;
 }
 

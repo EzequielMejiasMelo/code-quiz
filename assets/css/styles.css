@@ -31,3 +31,7 @@ main {
 .space {
     margin-top: 20px;
 }
+
+#scoreList {
+    background-color: lavender;
+}
