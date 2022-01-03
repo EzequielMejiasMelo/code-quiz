@@ -35,3 +35,4 @@ function goBack() {
 //Event listeners
 window.addEventListener("load", pullScores);
 clearBtn.addEventListener("click", clearScores);
+backBtn.addEventListener("click", goBack);
