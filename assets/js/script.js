@@ -57,13 +57,14 @@ function setCurrentQuestion() {
   return;
 }
 
-// renders the correct message
+// renders the message
 function answerChoice(result) {
   answerSpan.textContent = result;
   answerDiv.setAttribute("class", "");
   return;
 }
 
+// renders results div aka highscore submission and hides game elements
 function finishedQuiz() {
   choicesDiv.setAttribute("class", "hide");
   answerDiv.setAttribute("class", "hide");
@@ -71,6 +72,7 @@ function finishedQuiz() {
   scoreEl.textContent = time;
 }
 
+// starts and stops timer | also calls finishedQuiz
 function startTimer() {
   timer = setInterval(function() {
     time--;
@@ -86,6 +88,7 @@ function startTimer() {
   }, 1000);
 }
 
+//checks for answer button click and if answer is correct | calls answerChoice and setCurrentQuestion
 choicesList.addEventListener("click", function(event){
   if (event.target.localName === "button") {
     if(event.target.value === questionsAndAnswers[questionIndex].answer){
@@ -100,15 +103,18 @@ choicesList.addEventListener("click", function(event){
   return;
 })
 
+// adds highscore to localstorage and takes us to highscores.html
 function setHighscore() {
   localStorage.setItem(nameInput.value, scoreEl.textContent);
   location.href = "./highscores.html";
   return;
 }
 
+// button listeners call funcs quizGame and setHighscore
 startBtn.addEventListener("click", quizGame);
 submitBtn.addEventListener("click", setHighscore);
 
+//array with objects of question items
 var questionsAndAnswers = [
   {
     question: "Which Greek hero was called 'Tamer of Horses'?",
