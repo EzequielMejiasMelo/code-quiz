@@ -1,3 +1,27 @@
+//array with objects of question items
+var questionsAndAnswers = [
+  {
+    question: "Which Greek hero was called 'Tamer of Horses'?",
+    options: ["Paris", "Hector", "Alexander the Great", "Apollo"],
+    answer: "Hector"
+  },
+  {
+    question: "In Greek mythology, who flew too close to the Sun?",
+    options: ["Icarus", "Pegasus", "Theseus", "Proteus"],
+    answer: "Icarus"
+  },
+  {
+    question: "Who was the chief god of all the ancient Greeks?",
+    options: ["Minerva", "Apollo", "Zeus", "Hermes"],
+    answer: "Zeus"
+  },
+  {
+    question: "Who was the Greek goddes of the rainbow?",
+    options: ["Hera", "Iris", "Hecate", "Aphrodite"],
+    answer: "Iris"
+  },
+];
+
 //starting elements
 var startDiv = document.querySelector("#startItems");
 var startBtn = document.querySelector("#startBtn");
@@ -24,7 +48,7 @@ var submitBtn = document.querySelector("#submit");
 
 //state management variables
 var questionIndex = 0;
-var time = 4 * 15;
+var time = questionsAndAnswers.length * 15;
 timerEl.textContent = time;
 var timerId; 
 
@@ -77,7 +101,7 @@ function startTimer() {
   timer = setInterval(function() {
     time--;
     timerEl.textContent = time;
-    if(time >= 0 && questionIndex > 3) {
+    if(time >= 0 && questionIndex === questionsAndAnswers.length) {
       clearInterval(timer);
       finishedQuiz();
     }
@@ -98,7 +122,7 @@ choicesList.addEventListener("click", function(event){
       answerChoice("Incorrect");
     }
     questionIndex++;
-    if (questionIndex < 4){setCurrentQuestion()};
+    if (questionIndex < questionsAndAnswers.length){setCurrentQuestion()};
   }
   return;
 })
@@ -114,26 +138,3 @@ function setHighscore() {
 startBtn.addEventListener("click", quizGame);
 submitBtn.addEventListener("click", setHighscore);
 
-//array with objects of question items
-var questionsAndAnswers = [
-  {
-    question: "Which Greek hero was called 'Tamer of Horses'?",
-    options: ["Paris", "Hector", "Alexander the Great", "Apollo"],
-    answer: "Hector"
-  },
-  {
-    question: "In Greek mythology, who flew too close to the Sun?",
-    options: ["Icarus", "Pegasus", "Theseus", "Proteus"],
-    answer: "Icarus"
-  },
-  {
-    question: "Who was the chief god of all the ancient Greeks?",
-    options: ["Minerva", "Apollo", "Zeus", "Hermes"],
-    answer: "Zeus"
-  },
-  {
-    question: "Who was the Greek goddes of the rainbow?",
-    options: ["Hera", "Iris", "Hecate", "Aphrodite"],
-    answer: "Iris"
-  },
-];
