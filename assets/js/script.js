@@ -101,13 +101,15 @@ function startTimer() {
   timer = setInterval(function() {
     time--;
     timerEl.textContent = time;
-    if(time >= 0 && questionIndex === questionsAndAnswers.length) {
+    if(time > 0 && questionIndex === questionsAndAnswers.length) {
       clearInterval(timer);
       finishedQuiz();
     }
 
     if (time <= 0) {
       clearInterval(timer);
+      time = 0;
+      finishedQuiz();
     }
   }, 1000);
 }
