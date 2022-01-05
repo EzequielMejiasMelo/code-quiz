@@ -28,23 +28,16 @@ var time = 4 * 15;
 timerEl.textContent = time;
 var timerId; 
 
-// Starts and ends game
-function quizStart() {
-  startDiv.setAttribute("class", "hide");
-  quizGame();
-
-  //sets up results elements
-  return;
-}
-
-//handles setting: questions, answers and timer | returns score int
+// renders DOM elements, calls initial setCurrentQuestion, and calls startTimer
 function quizGame() {
+  startDiv.setAttribute("class", "hide");
   choicesDiv.setAttribute("class", "");
   setCurrentQuestion();
   startTimer();
   return;
 }
 
+// gets current question index and renders the question and buttons on the page
 function setCurrentQuestion() {
   var currentQuestion = questionsAndAnswers[questionIndex];
   questionEl.textContent = currentQuestion.question;
@@ -64,39 +57,30 @@ function setCurrentQuestion() {
   return;
 }
 
-function correctChoice() {
-  answerSpan.textContent = "Correct";
-  answerDiv.setAttribute("class", "");
-  return;
-}
-
-function wrongChoice() {
-  time -= 15;
-  answerSpan.textContent = "Incorrect";
+// renders the correct message
+function answerChoice(result) {
+  answerSpan.textContent = result;
   answerDiv.setAttribute("class", "");
   return;
 }
 
 function finishedQuiz() {
-  if(questionIndex > 3){
-    choicesDiv.setAttribute("class", "hide");
-    answerDiv.setAttribute("class", "hide");
-    resultsDiv.setAttribute("class", "");
-    scoreEl.textContent = time;
-  }
+  choicesDiv.setAttribute("class", "hide");
+  answerDiv.setAttribute("class", "hide");
+  resultsDiv.setAttribute("class", "");
+  scoreEl.textContent = time;
 }
 
 function startTimer() {
   timer = setInterval(function() {
     time--;
     timerEl.textContent = time;
-    if(time >= 0) {
-      if (finishedQuiz){
-        clearInterval(timer);
-      }
+    if(time >= 0 && questionIndex > 3) {
+      clearInterval(timer);
+      finishedQuiz();
     }
 
-    if (time === 0) {
+    if (time <= 0) {
       clearInterval(timer);
     }
   }, 1000);
@@ -105,12 +89,13 @@ function startTimer() {
 choicesList.addEventListener("click", function(event){
   if (event.target.localName === "button") {
     if(event.target.value === questionsAndAnswers[questionIndex].answer){
-      correctChoice();
+      answerChoice("Correct");
     } else {
-      wrongChoice();
+      time -= 15;
+      answerChoice("Incorrect");
     }
     questionIndex++;
-    setCurrentQuestion();
+    if (questionIndex < 4){setCurrentQuestion()};
   }
   return;
 })
@@ -121,7 +106,7 @@ function setHighscore() {
   return;
 }
 
-startBtn.addEventListener("click", quizStart);
+startBtn.addEventListener("click", quizGame);
 submitBtn.addEventListener("click", setHighscore);
 
 var questionsAndAnswers = [
@@ -132,12 +117,12 @@ var questionsAndAnswers = [
   },
   {
     question: "In Greek mythology, who flew too close to the Sun?",
-    options: ["Pegasus", "Icarus", "Theseus", "Proteus"],
+    options: ["Icarus", "Pegasus", "Theseus", "Proteus"],
     answer: "Icarus"
   },
   {
     question: "Who was the chief god of all the ancient Greeks?",
-    options: ["Minerva", "Zeus", "Apollo", "Hermes"],
+    options: ["Minerva", "Apollo", "Zeus", "Hermes"],
     answer: "Zeus"
   },
   {

@@ -11,6 +11,10 @@ main {
     margin: 20vh 30vw;
 }
 
+div *{
+    margin-bottom: 10px;
+}
+
 .hide {
     display: none;
 }
